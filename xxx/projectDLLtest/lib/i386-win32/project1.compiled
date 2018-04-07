@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <Compiler Value="D:\IDE\delphy\fpc\3.0.4\bin\i386-win32\fpc.exe" Date="1280922202"/>
-  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq -FiE:\!PROJECTS\Delphi\projectDLLtest\lib\i386-win32 -FuD:\IDE\delphy\lcl\units\i386-win32\win32 -FuD:\IDE\delphy\lcl\units\i386-win32 -FuD:\IDE\delphy\components\lazutils\lib\i386-win32 -FuD:\IDE\delphy\packager\units\i386-win32 -FuE:\!PROJECTS\Delphi\projectDLLtest\ -FUE:\!PROJECTS\Delphi\projectDLLtest\lib\i386-win32\ -dLCL -dLCLwin32 project1.lpr"/>
-  <Complete Value="False"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq -FiE:\!PROJECTS\STMPrj\PC_consoleApp-RFID-CR95HF-reader-to-M24LR04E-dynamic-NFC\xxx\projectDLLtest\lib\i386-win32 -FuD:\IDE\delphy\lcl\units\i386-win32\win32 -FuD:\IDE\delphy\lcl\units\i386-win32 -FuD:\IDE\delphy\components\lazutils\lib\i386-win32 -FuD:\IDE\delphy\packager\units\i386-win32 -FuE:\!PROJECTS\STMPrj\PC_consoleApp-RFID-CR95HF-reader-to-M24LR04E-dynamic-NFC\xxx\projectDLLtest\ -FUE:\!PROJECTS\STMPrj\PC_consoleApp-RFID-CR95HF-reader-to-M24LR04E-dynamic-NFC\xxx\projectDLLtest\lib\i386-win32\ -dLCL -dLCLwin32 project1.lpr"/>
 </CONFIG>
