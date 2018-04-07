@@ -1,0 +1,204 @@
+
+REV 1.0		24/06/2011
+- First customer release version
+	
+REV 1.1		12/07/2011
+- Tag Detection  parameters modified
+- Header modification for transparent commands "01" mandatory
+- Label modification for CR95HFDll_Sendreceive -> CR95HFDll_SendRecv
+- iso15693 config modification -> High data rate 10%
+	
+REV 1.1.1	20/10/2011
+- CR95HF.dll revision 0.5 added 
+	
+REV 1.2		04/01/2012
+-	CR95HF.dll revision 0.6 : Function to check DEMO-CR95HF USB connection added
+-	Software improved to check USB connection and reconnect DEMO-CR95HF in case of USB problems (protocol select automatically send again).
+-	Iso15693 : 
+o	M24LR04E added
+o	M24LR64E added
+-	Iso14443-A added
+o	Standard command added
+o	Anticollision function included
+-	Iso14443-B 
+o	REQB & WUPB added
+o	Anticollision function included
+-	User interface
+o	Read register modified (datasheet)
+o	Write regsister command added
+o	Idle parameters modified & AN3433 referenced
+-	Tag Detection tool
+o	Calibration parameters modified
+o	With/Without read register command option added
+o	Tag Detection routine can detect iso15693 tags/iso14443-A cards/iso14443-B tags/iso14443-B cards/Felica cards
+-	Tool box 
+o	DEMO-CR95HF-A USB Handle check command added
+o	DEMO-CR95HF-A USB connect command added
+o	Get Interface pin state command added
+o	Reset SPI command added
+o	Polig+ Reading command added
+-	Script tool
+o	DEMO-CR95HF-A USB Handle check command added
+o	DEMO-CR95HF-A USB connect command added
+
+REV 1.3		09/05/2012		
+- IDn display moficifation
+- Dll 0.8 added (continus improvememnt + Dll 0.8 .h .lib files available )
+- cr95hf command : 
+o Write register : Set/Reset HFO to RF added
+- iso15693 : 
+o Read Multiple Block modified to be able to read all memory (internal management)
+o Get SSS : idem 
+- iso14443-A
+o protocol select procedure improved (confifuration, Modulation depth & gain)
+o Topaz product added
+- iso14443-A
+o protocol select procedure improved (confifuration, Modulation depth & gain)
+o AttriB command added
+- iso8092 added
+o ReqC added
+- DEMO-CR95HF tool box
+o possibility to change Register parameters for iso14443-A protocol
+o send any ST_CMD request added
+- Tag Detection
+o User interface improved
+o Possibility to launch tag detection on all/some rf protocols
+o Timing process improved
+- Auto Detect tool (New)
+o possibility to launch inventory procedure for all/some rf protocol
+o several loops available
+
+REV 1.4		09/07/2012		
+- user interface
+o command Change TimerW value added (ISO14443-A)
+o command AutoDetect filter addded (ISO18092)
+- iso14443-B (SRxx)
+o	Read system ares (@FF) added
+- iso14443-A
+o possibility to modify TimerW protocol for all iso14443-A in tool box (50 to 60 en hexa)
+o protocol configuration changed (D3) to improve performances
+o Anticolision Anticol3 & Select3 added
+o removed wrong requests with no imapact (CR95HF INCREASE DEC TOLERANCE "01 09110B00241204880F1F3F3F01000505005500")
+- iso15693
+o antiCollision multitag added
+o cumulative Anticollision tool added (to be able to add new tags on list of detected tags)
+o read/write time improvement : option added to disable datalog (time consuming) 
+o Correction of answer management Read / Read Multiple error codes
+- Tag Detection
+o step modification following datasheet (+/-4)for DacDataH/L
+o removed wrong request never used and withpout any impact (Reset Idle "01 090460011800")
+
+REV 1.5		01/10/2013
+- new name for this software : STSW-95HF001 (in place of STSW-M24LR004) / depends on DEMO-CR95HF-A
+- Dll 0.9 added (CR95HFDLL_getHardwareVersion new function added)
+- iso14444-A
+	o Send APDU requests added for iso14443-A type 4
+- iso14443-B (SRxx)
+	o	Anticollision :
+		PCALL16 added on Anticollision process (slot0)	
+		Several Anticollision itérations following datasheet to be able to detect all tags
+		RF POR added (Reset HF2RF & Set HF2RF)
+	o	REQB last byte changed (0xF0 -> 0x00)
+- iso18092
+	o	Iso18092 select protocol changed (04 51 -> 04 51 10 05 00)	
+	o 	User interface modified
+	o	Polling / read / write commands added 
+- Tag Detection
+	o	iso14443-B Anticollision :
+		PCALL16 added on Anticollision process (slot0)	
+		Several Anticollision itérations following datasheet to be able to detect all tags
+		RF POR added (Reset HF2RF & Set HF2RF)
+- Script
+	o	iso14443-A
+		Anticollision UID decoding corrected
+	o	BREAK command added (breakpoint during script flow)	
+- AutoDetect
+	o	iso14443-A
+		Anticollision UID decoding corrected
+		Modification de la commande HLTA (5000 + 28)
+- User Interface
+	o	QJD RF Enable commabd added
+	o	Protocol select
+		. iso14443-A & iso14443-B : two optional bytes added
+- All windows
+		RF POR button added (Reset HF2RF & Set HF2RF)
+		All protocol select : RF Enable command added for QJD
+		
+REV 1.6		13/02/2014	
+	- ISO14443-A User Interface
+	- ISO14443-A NDEF Message User Interface
+	- ISO14443-B NDEF Message User Interface
+	- M24SR 
+	- NDEF Binary management added
+	- RX95HF User Interface added
+
+REV 1.7		03/02/2015
+	- ISO14443-A
+		o SRTAG2KL added
+		o SRTAG512L added
+		o Multi Tags anticollision process added	
+	- Tools
+		o Demo Type 4A Tag Emulation added (for ST95HF & RX95HF)
+	- User Interface
+		o RX95HF user interface added
+		o ST95HF user interface added
+	-	Mode reader iso15693
+		o	NDEF messages types 5 added
+		o	NDEF messages Vicinity cards added
+	-	Mode reader iso14443-A
+		o	NDEF messages type 2A added
+		o	NDEF messages type 4A
+	-	Mode reader iso14443-B
+		o	NDEF messages type 4B added 
+	-	Mode reader iso18092
+		o	NDEF messages type 3 added
+		
+REV 1.8		19/11/2015	
+	- TOOLS
+		o CRC calculation added
+	- CALIBRATION PROCESS
+		o DacDataH values indicated in Log modified (was internal variable instead of DacDataH value) 
+	- ISO15693
+		o PicoPass product added
+		o New command to be able to manage PicoPass on QJE
+		o NFC type 5 NDEF message user interface added
+	- ISO14443-A
+		o ST25TA16K (SRTAG16K) & ST25TA64K (SRTAG64K) products added
+		o ST25TA512 (SRTAG512L) ST25TA2K (SRTAG2KL) ST25TA2K-P (SRTAG2KL-P) ST25TA2K-D (SRTAG2KL-D )added
+		o M24SR & SRTAG & ST25TA products : Password management User Interface created		
+		o Select Application button added
+		o DID management corrected (PPS, CC & System & NDEF files read)
+		o Update binary data limited to 0x34 (instead of 0x35) due to CR95HF USB limitation	(64 bytes max including data/headers ... 34 bytes max)
+	- NFC Type 4A NDEF message management 
+		o Multi NDEF record management added
+		o Password management added for M24SR SRTAG & ST25TA products
+		o Mifare Desfire EV1 intialization procedure added
+
+REV 1.9		02/03/2017	
+	- ISO15693 
+		o ST25DV series added (ST25DV04K, ST25DV16K, ST25DV64K)
+			. Including FTM demos (to be used with ST25DV-DISCOVERY board)
+		o Datarate management improved
+		NDEF TYPE 5 introduction following NFC forum specifications	
+	- ISO14443-B
+		ST25TB512-AC added
+		ST25TB512-AT added
+		ST25TB02K added
+		ST25TB04K added
+	- DLL 1.2 support now long frames (up to 512 bytes)
+		Need CR95HF demonstration board (included in M24LR-DISCOVERY board)
+			. With embedded CR95HF IC revision QJE
+			. With embedded STM32 MCU revision 3.7.0 or upper (available on ST internet web site)
+
+REV 2.1.0	14/12/2017
+	- ISO14443-A
+		ST25TA512B added
+		ST25TA02KB added
+		ST25TA02KB-P added
+		ST25TA02KB-D added
+	- ST25DV : Memory & binary file management tool added
+	- Autodetect & Tag detection tools : Topaz product added
+
+REV 2.1.1	18/12/2017
+	- Issue correction when Script Help displayed
+ 
