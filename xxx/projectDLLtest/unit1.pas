@@ -82,7 +82,7 @@ begin
 number := String(Buffer1);
 SQLQuery1.Close;
 SQLQuery1.SQL.Clear;
-SQLQuery1.SQL.Add('INSERT INTO cards (id,number) VALUES(0,'+#39+number+#39+');');
+SQLQuery1.SQL.Add('INSERT INTO cards (number) VALUES('+#39+number+#39+');');
 SQLQuery1.ExecSQL;
 SQLQuery1.SQL.Text:='SELECT * from cards;';
 SQLQuery1.Open;
