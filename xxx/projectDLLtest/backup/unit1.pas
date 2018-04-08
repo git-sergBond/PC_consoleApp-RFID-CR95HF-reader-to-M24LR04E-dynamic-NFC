@@ -5,8 +5,8 @@ unit Unit1;
 interface
 
 uses
-Windows{ !!! }, Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs,
-StdCtrls;
+Windows, Classes, SysUtils, mysql56conn, mysql55conn, sqldb, db, FileUtil,
+Forms, Controls, Graphics, Dialogs, StdCtrls, DBGrids;
 {---FOR CR95HFDLL----}
 var LibHandle: Hmodule;
 iresult: Integer;
@@ -32,7 +32,16 @@ Button2: TButton;
 Button3: TButton;
 Button4: TButton;
 Button5: TButton;
+DataSource1: TDataSource;
+DBGrid1: TDBGrid;
+Label1: TLabel;
+Label2: TLabel;
+MySQL56Connection1: TMySQL56Connection;
+SQLQuery1: TSQLQuery;
+SQLTransaction1: TSQLTransaction;
 ToggleBox1: TToggleBox;
+ToggleBox2: TToggleBox;
+ToggleBox3: TToggleBox;
 procedure Button1Click(Sender: TObject);
 procedure Button2Click(Sender: TObject);
 procedure Button3Click(Sender: TObject);
@@ -40,6 +49,8 @@ procedure Button4Click(Sender: TObject);
 procedure Button5Click(Sender: TObject);
 procedure FormCreate(Sender: TObject);
 procedure ToggleBox1Click(Sender: TObject);
+procedure ToggleBox2Click(Sender: TObject);
+procedure ToggleBox3Click(Sender: TObject);
 private
 
 public
@@ -54,6 +65,23 @@ implementation
 {$R *.lfm}
 
 { TForm1 }
+{***DB***}
+procedure TForm1.ToggleBox2Click(Sender: TObject);
+{---Write in DB---}
+begin
+
+end;
+
+procedure TForm1.ToggleBox3Click(Sender: TObject);
+{---Read from DB---}
+begin
+SQLQuery1.Close;
+SQLQuery1.SQL.Clear;
+SQLQuery1.SQL.Add('select * from cards;');
+SQLQuery1.Open;
+end;
+
+
 procedure TForm1.Button2Click(Sender: TObject);
 {---GetDLLrev---}
 begin
@@ -96,6 +124,8 @@ else
 end;
 end;
 
+
+
 procedure TForm1.Button1Click(Sender: TObject);
 {---USBhandlecheck---}
 begin
@@ -107,9 +137,8 @@ if iresult = 0 then
 else
     ShowMessage('Карта не обнаружена');
 end;
+
 end;
-
-
 
 procedure TForm1.Button4Click(Sender: TObject);
 begin
@@ -137,8 +166,6 @@ if (strAnswer[0] = '8') and (strAnswer[1] = '0')  then
 else
     ShowMessage('тег ответа не возвращен');
 end
-else
-    ShowMessage('jib,rf');
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
