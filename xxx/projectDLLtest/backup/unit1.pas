@@ -13,8 +13,13 @@ CR95HFDLL_USBconnect: function(): Integer; stdcall;
 CR95HFDLL_USBhandlecheck: function(): Integer; stdcall;
 CR95HFDll_GetDLLrev: function(strAnswer: PChar): Integer; stdcall;
 CR95HFDLL_getMCUrev: function(strAnswer: PChar): Integer; stdcall;
+<<<<<<< HEAD
 CR95HFDll_Select: function(strRequest, strAnswer: PChar): Integer; stdcall;
 CR95HFDll_SendReceive: function(strRequest: PChar; strAnswer: PChar): Integer; stdcall;
+=======
+CR95HFDll_Select: function(var strRequest, strAnswer: PChar): Integer; stdcall;
+CR95HFDll_SendReceive: function(var strRequest, strAnswer: PChar): Integer; stdcall;
+>>>>>>> 83e094a2aa9a57c8232cb3bd05a731f3cd7b9729
 {-------}
 
 type
@@ -54,7 +59,11 @@ procedure TForm1.Button2Click(Sender: TObject);
 var
   iresult: Integer;
   strAnswer: PChar;
+<<<<<<< HEAD
   Buffer: array[0..49] of Char = '';
+=======
+  Buffer: array[0..49] of Char;
+>>>>>>> 83e094a2aa9a57c8232cb3bd05a731f3cd7b9729
 begin
 LibHandle := LoadLibrary('CR95HF.dll');
 if LibHandle <> 0 then
@@ -79,7 +88,11 @@ procedure TForm1.Button3Click(Sender: TObject);
 var
   iresult: Integer;
   strAnswer: PChar;
+<<<<<<< HEAD
   Buffer: array[0..49] of Char = '';
+=======
+  Buffer: array[0..49] of Char;
+>>>>>>> 83e094a2aa9a57c8232cb3bd05a731f3cd7b9729
 begin
 LibHandle := LoadLibrary('CR95HF.dll');
 if LibHandle <> 0 then
@@ -147,8 +160,13 @@ var
   iresult: Integer;
   strAnswer: PChar;
   strRequest: PChar;
+<<<<<<< HEAD
   Buffer1: array[0..49] of Char = '';
   Buffer2: array[0..49] of Char = '';
+=======
+  Buffer1: array[0..49] of Char;
+  Buffer2: array[0..49] of Char;
+>>>>>>> 83e094a2aa9a57c8232cb3bd05a731f3cd7b9729
 begin
 {---Select_ISO15693---}{ *** КОСЯЧТ *** }
 LibHandle := LoadLibrary('CR95HF.dll');
@@ -174,10 +192,18 @@ end;
 procedure TForm1.Button5Click(Sender: TObject);
 {---Send_ISO15693_Inventory---}
 var
+<<<<<<< HEAD
   strAnswer: PChar;
   strRequest: PChar;
   Buffer1: array[0..49] of Char = '';
   Buffer2: array[0..49] of Char = '';
+=======
+  iresult: Integer;
+  strAnswer: PChar;
+  strRequest: PChar;
+  Buffer1: array[0..49] of Char;
+  Buffer2: array[0..49] of Char;
+>>>>>>> 83e094a2aa9a57c8232cb3bd05a731f3cd7b9729
 begin
 CR95HFDll_SendReceive := nil;
 @CR95HFDll_SendReceive := GetProcAddress(LibHandle, 'CR95HFDll_SendReceive'); // запоминаем адрес необходимой функции
@@ -186,11 +212,19 @@ begin
 strAnswer := Buffer1;
 strRequest := Buffer2;
 StrCopy(strRequest,'260100');
-iresult := CR95HFDll_SendReceive(strRequest,strAnswer);
+<<<<<<< HEAD
+CR95HFDll_SendReceive(strRequest,strAnswer);
 if (strAnswer[0] = '8') and (strAnswer[1] = '0')  then
    ShowMessage(strAnswer)
 else
     ShowMessage('тег ответа не возвращен');
+=======
+iresult := CR95HFDll_SendReceive(strRequest,strAnswer);
+//if iresult = 0 then
+   ShowMessage(strAnswer) ;
+//else
+//    ShowMessage('протокол не выбран');
+>>>>>>> 83e094a2aa9a57c8232cb3bd05a731f3cd7b9729
 end;
 FreeLibrary(LibHandle);
 end;
