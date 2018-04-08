@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 597
+  Left = 627
   Height = 211
-  Top = 248
+  Top = 334
   Width = 397
   Caption = 'Form1'
   ClientHeight = 211
@@ -42,6 +42,7 @@ object Form1: TForm1
     Top = 160
     Width = 134
     Caption = 'GetMCUrev'
+    OnClick = Button3Click
     TabOrder = 3
   end
   object Button4: TButton
