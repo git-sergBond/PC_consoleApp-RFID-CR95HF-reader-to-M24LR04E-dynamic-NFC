@@ -88,6 +88,7 @@ object Form1: TForm1
     Width = 216
     Color = clWindow
     Columns = <>
+    DataSource = DataSource1
     TabOrder = 8
   end
   object Label1: TLabel

@@ -65,11 +65,27 @@ implementation
 {$R *.lfm}
 
 { TForm1 }
+{### MY ###}
+function ArrayToString(const a: array of Char): string;
+begin
+  if Length(a)>0 then
+    SetString(Result, PChar(@a[0]), Length(a))
+  else
+    Result := '';
+end;
+
 {***DB***}
 procedure TForm1.ToggleBox2Click(Sender: TObject);
 {---Write in DB---}
+var number: string;
 begin
-
+number := String(Buffer1);
+SQLQuery1.Close;
+SQLQuery1.SQL.Clear;
+SQLQuery1.SQL.Add('INSERT INTO cards (id,number) VALUES(0,'+#39+number+#39+');');
+SQLQuery1.ExecSQL;
+SQLQuery1.SQL.Text:='SELECT * from cards;';
+SQLQuery1.Open;
 end;
 
 procedure TForm1.ToggleBox3Click(Sender: TObject);
